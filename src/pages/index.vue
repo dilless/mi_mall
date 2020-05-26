@@ -191,6 +191,7 @@ export default {
 
           &:hover {
             background-color: $colorA;
+
             .children {
               display: block;
             }
@@ -206,20 +207,24 @@ export default {
             left: 264px;
             border: 1px solid $colorH;
             transition: all .5s;
+
             ul {
               display: flex;
               justify-content: space-between;
               height: 75px;
+
               li {
                 height: 75px;
                 line-height: 75px;
                 flex: 1;
                 padding-left: 23px;
               }
+
               a {
                 color: $colorB;
                 font-size: $fontJ;
               }
+
               img {
                 width: 42px;
                 height: 35px;
