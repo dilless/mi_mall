@@ -10,7 +10,7 @@
                 <ul v-for="(item, index) in menuList" :key="index">
                   <li v-for="(sub, sub_index) in item" :key="sub_index">
                     <a :href="sub ?'/#/product/' + sub.id : ''">
-                      <img :src="sub ? sub.img : '/imgs/item-box-1.png'" alt="">
+                      <img v-lazy="sub ? sub.img : '/imgs/item-box-1.png'" alt="">
                       {{ sub ? sub.name : '小米9' }}
                     </a>
                   </li>
@@ -49,7 +49,7 @@
         </div>
         <swiper :options="swiperOption">
           <swiper-slide v-for="(item, index) in sliderList" :key="index">
-            <a :href="'/#/product/' + item.id"><img :src="item.img"></a>
+            <a :href="'/#/product/' + item.id"><img v-lazy="item.img"></a>
           </swiper-slide>
           <div class="swiper-pagination" slot="pagination"></div>
           <div class="swiper-button-prev" slot="button-prev"></div>
@@ -58,12 +58,12 @@
       </div>
       <div class="ads-box">
         <a :href="'/#/product/' + item.id" v-for="(item, index) in adsList" :key="index">
-          <img :src="item.img" alt="">
+          <img v-lazy="item.img" alt="">
         </a>
       </div>
       <div class="banner">
         <a href="/#/product/30">
-          <img src="/imgs/banner-1.png" alt="">
+          <img v-lazy="'/imgs/banner-1.png'" alt="">
         </a>
       </div>
     </div>
@@ -79,7 +79,7 @@
               <div class="item" v-for="(item, j) in arr" :key="j">
                 <span :class="j % 2 === 0 ? 'new-pro' : j % 3 === 0 ? 'kill-pro' : ''">{{ j % 2 === 0 ? '新品' : j % 3 === 0 ? '秒杀' : '' }}</span>
                 <div class="item-img">
-                  <img :src="item.mainImage"
+                  <img v-lazy="item.mainImage"
                        alt="">
                 </div>
                 <div class="item-info">
