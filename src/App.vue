@@ -13,6 +13,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import "./assets/scss/reset.scss";
-@import "./assets/scss/base.scss";
+@import "./assets/scss/reset";
+@import "./assets/scss/base";
+@import "./assets/scss/modal";
+@import "./assets/scss/button";
 </style>
