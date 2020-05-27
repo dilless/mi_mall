@@ -4,6 +4,7 @@ import VueAxios from 'vue-axios'
 import router from './router'
 import App from './App.vue'
 import VueLazyload from 'vue-lazyload'
+import VueCookie from 'vue-cookie'
 // import env from './env'
 
 // mock 开关
@@ -28,6 +29,7 @@ axios.interceptors.response.use(function (response) {
     window.location.href = '/#/login'
   } else {
     alert(res.msg)
+    return Promise.reject(res)
   }
 })
 
@@ -35,6 +37,7 @@ Vue.use(VueAxios, axios)
 Vue.use(VueLazyload, {
   loading: '/imgs/loading-svg/loading-bars.svg'
 })
+Vue.use(VueCookie)
 
 Vue.config.productionTip = false
 
