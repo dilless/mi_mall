@@ -38,6 +38,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
   name: 'login',
   data () {
@@ -48,6 +50,7 @@ export default {
     }
   },
   methods: {
+    ...mapActions(['saveUsername', 'saveCartCount']),
     login () {
       const { username, password } = this
       this.axios.post('/user/login', {
@@ -55,7 +58,8 @@ export default {
         password
       }).then((res) => {
         this.$cookie.set('userId', res.id, { expires: '1M' })
-        // todo 保存用户名
+        // this.$store.dispatch('saveUsername', res.username)
+        this.saveUsername(res.username)
         this.$router.push('/index')
       })
     },
