@@ -8,7 +8,28 @@
 
 export default {
   name: 'App',
-  components: {}
+  components: {},
+  data () {
+    return {}
+  },
+  mounted () {
+    this.getUser()
+    this.getCartCount()
+  },
+  methods: {
+    getUser () {
+      this.axios.get('/user')
+        .then((res) => {
+          // todo 保存到 Vuex
+        })
+    },
+    getCartCount () {
+      this.axios.get('/carts/products/sum')
+        .then((res) => {
+          // todo
+        })
+    }
+  }
 }
 </script>
 
